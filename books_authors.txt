@@ -1,0 +1,25 @@
+To create books: book_1 = Books.objects.create(title="C Sharp", desc=")... and so on.
+
+To create authors: author_1 = Author.objects.create(first_name="Jane", last_name="Austen")... and so on.
+
+To change the name of C Sharp to be C#: I set a variable first_book = Book.objects.get(id=1) so I can have access to the instance and I say first_book.title = C#, and then first_book.save()
+
+To change the name of the 4th author to Bill: fourth_author = Author.objects.get(id=4), and then fourth_author.first_name = "Bill", and then fourth_author.save()
+
+To assign the first_author to the first 2 books: first_author = Author.objects.get(id=1), first_book = Book.objects.get(id=1), second_book = Book.objects.get(id=2) and then first_author.books.add(first_book, second_book)
+
+To assign the second author to the first 3 books: second_author = Author.objects.get(id=2), third_book = Book.objects.get(id=3) and then second_author.books.add(first_book, second_book, third_book)
+
+To assign the third author to the first 4 books: third_author = Author.objects.get(id=4), fourth_book = Book.objects.get(id=4) and then third_author.books.add(first_book, second_book, third_book, fourth_book)
+
+To assign the fourth author to the 5 books: fifth_book = Book.objects.get(id=5), and then fourth_author.books.add(first_book, second_book, third_book, fourth_book, fifth_book)
+
+To retrieve all the authors for the 3rd book: third_book.authors.all()
+
+To remove the first author of the 3rd book: third_book.authors.remove(third_book.authors.first()) ... It's kind of easier for me this way, instead of finding the ID before removing. I don't know, I'm only human.
+
+To add the 5th author as one of the authors of the 2nd book: fifth_author = Author.objects.get(id=5), and then second_book.authors.add(fifth_author)
+
+To find all the books that the 3rd author is part of: third_author.books.all()
+
+To find all the authors that contributed to the fifth book: fifth_book.authors.all()
